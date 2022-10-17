@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
 
         Graph g = new Graph();
-        /*
+
         Node zero = new Node();
         Node one = new Node();
         Node two = new Node();
@@ -16,8 +16,8 @@ public class Main {
         g.addEdge(zero, three); // c
         g.addEdge(one, three); // d
         g.addEdge(two, three); // e
-        */
 
+        /*
         Node zero = new Node(), one = new Node(), two=new Node(), three= new Node(), four=new Node(), five=new Node(), six=new Node(), seven=new Node();
 
         g.addEdge(zero, one);
@@ -34,14 +34,11 @@ public class Main {
         g.addEdge(two, five);
         g.addEdge(two, four);
         g.addEdge(three, five);
+        */
 
+        Karger k = new Karger(g);
+        int mincut = k.run();
+        System.out.println("mincut of graph g is : "+mincut);
 
-        Karger k = new Karger();
-        int mini = g.getNbEdges();
-        for (int i = 0; i<50; i++) {
-            Graph gr = g.clone();
-            mini = Math.min(mini, k.run(gr));
-        }
-        System.out.println(mini);
     }
 }
