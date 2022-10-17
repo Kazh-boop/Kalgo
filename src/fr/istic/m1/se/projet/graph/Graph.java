@@ -8,8 +8,6 @@ public class Graph {
 
     private Set<Node> nodes;
 
-
-
     public Graph() {
         edges = new LinkedList<>();
         nodes = new HashSet<>();
@@ -35,10 +33,9 @@ public class Graph {
         nodes.remove(n);
     }
 
-    public List<Edge> getEdges() {
-        return edges;
+    public Edge getEdge(int i) {
+        return edges.get(i);
     }
-
 
 
     public void printGraph() {
@@ -52,12 +49,6 @@ public class Graph {
             System.out.print(n+" ");
         }
         System.out.println();
-    }
-
-    public Graph clone() {
-        Graph g =  new Graph();
-        for (Edge ed : edges) g.addEdge(ed.getN1(), ed.getN2());
-        return g;
     }
 
 }

@@ -2,7 +2,7 @@ package fr.istic.m1.se.projet.graph;
 
 public class Node {
 
-    private int id;
+    private final int id;
     private String name;
     private static int counter = 0;
 
