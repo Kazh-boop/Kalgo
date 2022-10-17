@@ -6,16 +6,18 @@ public class Karger {
 
     private Graph graph;
 
-
-    public int run(Graph graph) {
+    public Karger(Graph graph) {
         this.graph = graph;
+    }
+
+    public int run() {
         return getMinCut();
     }
 
     private int getMinCut() {
         while (graph.getNbNodes() > 2) {
             int i = getRandomNumber();
-            Edge edge = graph.getEdges().get(i);
+            Edge edge = graph.getEdge(i);
             if (edge.isSelfLoop()) {
                 removeSelfLoop(edge);
             } else {
@@ -32,7 +34,7 @@ public class Karger {
         Node dest = e.getN2();
         dest.rename(src.getName()+dest.getName());
         for (int i=0; i < graph.getNbEdges(); i++) {
-            Edge ed = graph.getEdges().get(i);
+            Edge ed = graph.getEdge(i);
             if (src.equals(ed.getN1()) || src.equals(ed.getN2())) {
                 ed.replaceNode(src, dest);
             }
