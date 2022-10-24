@@ -1,13 +1,15 @@
-package fr.istic.m1.se.projet.sequential;
+package fr.istic.m1.se.projet.Karger;
 
-import fr.istic.m1.se.projet.graph.*;
+import fr.istic.m1.se.projet.graph.Edge;
+import fr.istic.m1.se.projet.graph.Graph;
+import fr.istic.m1.se.projet.graph.Node;
 
 public class Karger {
 
     private Graph graph;
 
     public Karger(Graph graph) {
-        this.graph = graph;
+        this.graph = new Graph(graph);
     }
 
     public int run() {

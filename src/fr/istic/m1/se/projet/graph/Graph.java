@@ -1,6 +1,7 @@
 package fr.istic.m1.se.projet.graph;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Graph {
 
@@ -13,6 +14,25 @@ public class Graph {
         nodes = new HashSet<>();
     }
 
+    /**
+     * Deep copy, a lot of difficult to do
+     * @param source graph to copy
+     */
+    public Graph(Graph source) {
+        nodes = new HashSet<>();
+        edges = new LinkedList<>();
+        for (Node n : source.nodes) nodes.add(new Node(n));
+        for (Edge ed : source.edges) { // sa pique le nombre de boucle
+            for (Node src : this.nodes) {
+                for (Node dest : this.nodes) {
+                    if (src.equals(ed.getN1()) && dest.equals(ed.getN2()))
+                        addEdge(src, dest);
+                }
+            }
+        }
+    }
+
+
     public int getNbNodes() {
         return nodes.size();
     }
@@ -23,6 +43,13 @@ public class Graph {
         edges.add(new Edge(n1, n2));
         nodes.add(n1);
         nodes.add(n2);
+    }
+
+    public void addEdge(Edge e) {
+        Edge ed = new Edge(e);
+        edges.add(ed);
+        nodes.add(ed.getN1());
+        nodes.add(ed.getN2());
     }
 
     public void removeEdge(Edge e) {

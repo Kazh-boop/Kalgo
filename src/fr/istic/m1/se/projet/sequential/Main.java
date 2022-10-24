@@ -1,8 +1,12 @@
-import fr.istic.m1.se.projet.graph.*;
-import fr.istic.m1.se.projet.sequential.Karger;
+package fr.istic.m1.se.projet.sequential;
+
+import fr.istic.m1.se.projet.Karger.Karger;
+import fr.istic.m1.se.projet.graph.Graph;
+import fr.istic.m1.se.projet.graph.Node;
+
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
 
         Graph g = new Graph();
 
@@ -36,9 +40,7 @@ public class Main {
         g.addEdge(three, five);
         */
 
-        Karger k = new Karger(g);
-        int mincut = k.run();
-        System.out.println("mincut of graph g is : "+mincut);
+        System.out.println("mincut of graph g is : ");
 
     }
 }
