@@ -1,5 +1,7 @@
 package fr.istic.m1.se.projet.graph;
 
+import java.util.Objects;
+
 public class Node {
 
     private final int id;
@@ -14,6 +16,11 @@ public class Node {
     public Node() {
         this.id = counter++;
         this.name = String.valueOf(id);
+    }
+
+    public Node(Node n) {
+        this.id = n.id;
+        this.name = n.name;
     }
 
     public String getName() {
@@ -31,8 +38,12 @@ public class Node {
         return name;
     }
 
-
-    public boolean equals(Node other) {
-        return id == other.id;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Node node = (Node) o;
+        return id == node.id;
     }
+
 }
