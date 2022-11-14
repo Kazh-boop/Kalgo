@@ -36,7 +36,4 @@ public class Edge {
         return n1+" --- "+n2;
     }
 
-    public boolean equals(Edge other) {
-        return n1.equals(other.n1) || n1.equals(other.n2) || n2.equals(other.n1) || n2.equals(other.n1);
-    }
 }

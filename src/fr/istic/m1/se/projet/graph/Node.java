@@ -27,10 +27,6 @@ public class Node {
         return name;
     }
 
-    public int getId() {
-        return id;
-    }
-
     public void rename(String n) { this.name = n; }
 
     @Override
@@ -40,10 +36,8 @@ public class Node {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
         Node node = (Node) o;
-        return id == node.id;
+        return id == node.id || name.equals(node.name);
     }
 
 }
