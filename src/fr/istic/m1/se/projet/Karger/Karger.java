@@ -8,11 +8,12 @@ public class Karger implements Runnable {
 
     private Graph graph;
 
-    private int mincut = -1;
+    private int mincut;
 
 
     public Karger(Graph graph) {
         this.graph = new Graph(graph);
+        this.mincut = -1;
     }
 
     @Override

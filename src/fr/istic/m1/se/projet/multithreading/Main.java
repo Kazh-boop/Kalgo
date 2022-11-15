@@ -84,6 +84,11 @@ public class Main {
         thread3.join();
         thread4.join();
 
+        System.out.println("mincut thread 1 : "+karger1.getMincut());
+        System.out.println("mincut thread 2 : "+karger2.getMincut());
+        System.out.println("mincut thread 3 : "+karger3.getMincut());
+        System.out.println("mincut thread 4 : "+karger4.getMincut());
+
         int mini = minimum(karger1.getMincut(), karger2.getMincut(), karger3.getMincut(), karger4.getMincut());
 
         System.out.println("mincut of graph g is : "+mini);
