@@ -2,38 +2,38 @@ package fr.istic.m1.se.projet.graph;
 
 public class Edge {
 
-    private Node n1, n2;
+    private Integer src, dest;
 
-    public Edge(Node n1, Node n2) {
-        this.n1 = n1;
-        this.n2 = n2;
+    public Edge(Integer src, Integer dest) {
+        this.src = src;
+        this.dest = dest;
     }
 
     public Edge(Edge e) {
-        this.n1 = new Node(e.getN1());
-        this.n2 = new Node(e.getN2());
+        this.src = e.getSrc();
+        this.dest = e.getDest();
     }
 
-    public Node getN1() {
-        return n1;
+    public Integer getSrc() {
+        return src;
     }
 
-    public Node getN2() {
-        return n2;
+    public Integer getDest() {
+        return dest;
     }
 
     public boolean isSelfLoop() {
-        return n1.equals(n2);
+        return src.equals(dest);
     }
 
-    public void replaceNode(Node old, Node neo) {
-        if (old.equals(n1)) n1 = neo;
-        else n2 = neo;
+    public void replaceNode(Integer old, Integer neo) {
+        if (old.equals(src)) src = neo;
+        else dest = neo;
     }
 
     @Override
     public String toString() {
-        return n1+" --- "+n2;
+        return src+" --- "+dest;
     }
 
 }

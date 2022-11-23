@@ -1,8 +1,7 @@
 package fr.istic.m1.se.projet.sequential;
 
-import fr.istic.m1.se.projet.Karger.Karger;
+import fr.istic.m1.se.projet.karger.Karger;
 import fr.istic.m1.se.projet.graph.Graph;
-import fr.istic.m1.se.projet.graph.Node;
 
 
 public class Main {
@@ -13,6 +12,13 @@ public class Main {
             System.exit(-1);
         }
         if (Integer.parseInt(args[0]) == 1) {
+            g.addEdge(1, 2); // a
+            g.addEdge(1, 3); // b
+            g.addEdge(1, 4); // c
+            g.addEdge(2, 4); // d
+            g.addEdge(3, 4); // e
+        }
+            /*
             Node zero = new Node();
             Node one = new Node();
             Node two = new Node();
@@ -63,21 +69,23 @@ public class Main {
         } else {
             System.err.println("Error argument. It has to be 1 or 2 or 3");
             System.exit(-1);
+        }*/
+        int mini = 10000000;
+        for (int i=0; i<10000000;i++) {
+            Karger karger1 = new Karger(g);
+            Karger karger2 = new Karger(g);
+            Karger karger3 = new Karger(g);
+            Karger karger4 = new Karger(g);
+
+            karger1.run();
+            karger2.run();
+            karger3.run();
+            karger4.run();
+
+            mini = minimum(karger1.getMincut(), karger2.getMincut(), karger3.getMincut(), karger4.getMincut());
         }
-
-        Karger karger1 = new Karger(g);
-        Karger karger2 = new Karger(g);
-        Karger karger3 = new Karger(g);
-        Karger karger4 = new Karger(g);
-
-        karger1.run();
-        karger2.run();
-        karger3.run();
-        karger4.run();
-
-        int mini = minimum(karger1.getMincut(), karger2.getMincut(), karger3.getMincut(), karger4.getMincut());
-
         System.out.println("mincut of graph g is : " + mini);
+
     }
 
     public static int minimum(int a, int b, int c, int d) {
@@ -85,6 +93,14 @@ public class Main {
         mini = Math.min(a,b);
         mini = Math.min(mini, c);
         mini = Math.min(mini, d);
+        return mini;
+    }
+    public static int minimum(int a, int b, int c, int d, int e) {
+        int mini;
+        mini = Math.min(a,b);
+        mini = Math.min(mini, c);
+        mini = Math.min(mini, d);
+        mini = Math.min(mini, e);
         return mini;
     }
 }

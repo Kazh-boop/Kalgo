@@ -1,8 +1,7 @@
-package fr.istic.m1.se.projet.Karger;
+package fr.istic.m1.se.projet.karger;
 
 import fr.istic.m1.se.projet.graph.Edge;
 import fr.istic.m1.se.projet.graph.Graph;
-import fr.istic.m1.se.projet.graph.Node;
 
 public class Karger implements Runnable {
 
@@ -32,8 +31,9 @@ public class Karger implements Runnable {
             if (edge.isSelfLoop()) {
                 removeSelfLoop(edge);
             } else {
-                //System.out.println("merge "+ edge);
+                //System.out.println("merge : "+edge);
                 merge(edge);
+                //graph.printGraph();
             }
         }
         int i=0;
@@ -42,17 +42,22 @@ public class Karger implements Runnable {
             if (e.isSelfLoop()) removeSelfLoop(e);
             else i++;
         }
+        //graph.printGraph();
+        //graph.printNodes();
+        //System.out.println();
         return graph.getNbEdges();
     }
 
     private void merge(Edge e) {
         graph.removeEdge(e);
-        Node src = e.getN1();
-        Node dest = e.getN2();
-        dest.rename(src.getName()+dest.getName());
+        Integer src = e.getSrc();
+        Integer dest = e.getDest();
         for (int i=0; i<graph.getNbEdges(); i++) {
             Edge ed = graph.getEdge(i);
-            if (src.equals(ed.getN1()) || src.equals(ed.getN2())) {
+            if (src.equals(ed.getSrc())) {
+                ed.replaceNode(src, dest);
+            }
+            if (src.equals(ed.getDest())) {
                 ed.replaceNode(src, dest);
             }
         }

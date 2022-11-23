@@ -6,7 +6,7 @@ public class Graph {
 
     private List<Edge> edges;
 
-    private Set<Node> nodes;
+    private Set<Integer> nodes;
 
     public Graph() {
         edges = new LinkedList<>();
@@ -20,11 +20,11 @@ public class Graph {
     public Graph(Graph source) {
         nodes = new HashSet<>();
         edges = new LinkedList<>();
-        for (Node n : source.nodes) nodes.add(new Node(n));
+        nodes.addAll(source.nodes);
         for (Edge ed : source.edges) { // ca pique le nombre de boucle
-            for (Node src : this.nodes) {
-                for (Node dest : this.nodes) {
-                    if (src.equals(ed.getN1()) && dest.equals(ed.getN2()))
+            for (Integer src : this.nodes) {
+                for (Integer dest : this.nodes) {
+                    if (src.equals(ed.getSrc()) && dest.equals(ed.getDest()))
                         addEdge(src, dest);
                 }
             }
@@ -38,17 +38,17 @@ public class Graph {
 
     public int getNbEdges() { return edges.size(); }
 
-    public void addEdge(Node n1, Node n2) {
-        edges.add(new Edge(n1, n2));
-        nodes.add(n1);
-        nodes.add(n2);
+    public void addEdge(Integer src, Integer dest) {
+        edges.add(new Edge(src, dest));
+        nodes.add(src);
+        nodes.add(dest);
     }
 
     public void removeEdge(Edge e) {
         edges.remove(e);
     }
 
-    public void removeNode(Node n) {
+    public void removeNode(Integer n) {
         nodes.remove(n);
     }
 
@@ -56,6 +56,7 @@ public class Graph {
         return edges.get(i);
     }
 
+    public void addNode(Integer n) { nodes.add(n); }
 
     public void printGraph() {
         for (Edge e : edges) {
@@ -64,7 +65,7 @@ public class Graph {
     }
 
     public void printNodes() {
-        for (Node n : nodes) {
+        for (Integer n : nodes) {
             System.out.print(n+" ");
         }
         System.out.println();
