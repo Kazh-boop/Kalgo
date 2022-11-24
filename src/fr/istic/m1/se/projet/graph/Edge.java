@@ -1,39 +1,62 @@
 package fr.istic.m1.se.projet.graph;
 
+/**
+ * Representation of an edge in the class Graph
+ */
 public class Edge {
 
-    private Node n1, n2;
+    /**
+     * Vertices which compose the edge
+     */
+    private Vertex src, dest;
 
-    public Edge(Node n1, Node n2) {
-        this.n1 = n1;
-        this.n2 = n2;
+    /**
+     * Constructor
+     * @param src : Vertex
+     * @param dest : Vertex
+     */
+    public Edge(Vertex src, Vertex dest) {
+        this.src = src;
+        this.dest = dest;
     }
 
-    public Edge(Edge e) {
-        this.n1 = new Node(e.getN1());
-        this.n2 = new Node(e.getN2());
+    /**
+     * Get the vertex src
+     * @return src
+     */
+    public Vertex getSrc() {
+        return src;
     }
 
-    public Node getN1() {
-        return n1;
+    /**
+     * Get the vertex dest
+     * @return dest
+     */
+    public Vertex getDest() {
+        return dest;
     }
 
-    public Node getN2() {
-        return n2;
-    }
-
+    /**
+     * Check if the edge is a self loop
+     * @return true if edge is a self loop, else false
+     */
     public boolean isSelfLoop() {
-        return n1.equals(n2);
+        return src.equals(dest);
     }
 
-    public void replaceNode(Node old, Node neo) {
-        if (old.equals(n1)) n1 = neo;
-        else n2 = neo;
+    /**
+     * Change one of the vertices with a new one
+     * @param old : Vertex, vertex to change
+     * @param neo : Vertex, new vertex of the edge
+     */
+    public void replaceVertex(Vertex old, Vertex neo) {
+        if (old.equals(src)) src = neo;
+        else dest = neo;
     }
 
     @Override
     public String toString() {
-        return n1+" --- "+n2;
+        return src +" --- "+ dest;
     }
 
 }

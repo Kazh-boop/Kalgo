@@ -2,7 +2,7 @@ package fr.istic.m1.se.projet.sequential;
 
 import fr.istic.m1.se.projet.Karger.Karger;
 import fr.istic.m1.se.projet.graph.Graph;
-import fr.istic.m1.se.projet.graph.Node;
+import fr.istic.m1.se.projet.graph.Vertex;
 
 
 public class Main {
@@ -13,10 +13,10 @@ public class Main {
             System.exit(-1);
         }
         if (Integer.parseInt(args[0]) == 1) {
-            Node zero = new Node();
-            Node one = new Node();
-            Node two = new Node();
-            Node three = new Node();
+            Vertex zero = new Vertex();
+            Vertex one = new Vertex();
+            Vertex two = new Vertex();
+            Vertex three = new Vertex();
 
             g.addEdge(zero, one); // a
             g.addEdge(zero, two); // b
@@ -25,7 +25,7 @@ public class Main {
             g.addEdge(two, three); // e
 
         } else if (Integer.parseInt(args[0]) == 2) {
-            Node zero = new Node(), one = new Node(), two = new Node(), three = new Node(), four = new Node(), five = new Node(), six = new Node(), seven = new Node();
+            Vertex zero = new Vertex(), one = new Vertex(), two = new Vertex(), three = new Vertex(), four = new Vertex(), five = new Vertex(), six = new Vertex(), seven = new Vertex();
 
             g.addEdge(zero, one);
             g.addEdge(one, two);
@@ -43,7 +43,7 @@ public class Main {
             g.addEdge(three, five);
 
         } else if (Integer.parseInt(args[0]) == 3) {
-            Node zero = new Node(), one = new Node(), two=new Node(), three= new Node(), four=new Node(), five=new Node(), six=new Node(), seven=new Node();
+            Vertex zero = new Vertex(), one = new Vertex(), two=new Vertex(), three= new Vertex(), four=new Vertex(), five=new Vertex(), six=new Vertex(), seven=new Vertex();
 
             g.addEdge(zero, one);
             g.addEdge(zero, two);
