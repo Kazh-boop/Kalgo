@@ -96,7 +96,7 @@ public class Karger implements Runnable {
      * @return random number
      */
     private int getRandomNumber() {
-        return ((int)(Math.random()*graph.getNbVertices())) % graph.getNbEdges();
+        return ((int)(Math.random()*100)) % graph.getNbEdges();
     }
 
 }
