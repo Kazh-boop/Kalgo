@@ -1,4 +1,4 @@
-package fr.istic.m1.se.projet.Karger;
+package fr.istic.m1.se.projet.karger;
 
 import fr.istic.m1.se.projet.graph.Edge;
 import fr.istic.m1.se.projet.graph.Graph;

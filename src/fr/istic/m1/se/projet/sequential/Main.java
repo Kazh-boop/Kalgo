@@ -1,6 +1,6 @@
 package fr.istic.m1.se.projet.sequential;
 
-import fr.istic.m1.se.projet.Karger.Karger;
+import fr.istic.m1.se.projet.karger.Karger;
 import fr.istic.m1.se.projet.graph.Graph;
 import fr.istic.m1.se.projet.graph.Vertex;
 
